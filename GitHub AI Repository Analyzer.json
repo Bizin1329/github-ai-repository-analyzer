@@ -1,0 +1,621 @@
+{
+  "name": "GitHub AI Repository Analyzer",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -432,
+        -528
+      ],
+      "id": "48917dd5-ae27-4e38-aff5-03f2ecf5dcb1",
+      "name": "Trigger — Manual"
+    },
+    {
+      "parameters": {
+        "url": "https://api.github.com/search/repositories",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "q",
+              "value": "={{\n`AI agent stars:>500 fork:false archived:false`\n}}"
+            },
+            {
+              "name": "sort",
+              "value": "updated"
+            },
+            {
+              "name": "order",
+              "value": "desc"
+            },
+            {
+              "name": "per_page",
+              "value": "100"
+            },
+            {
+              "name": "page",
+              "value": "1"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "token YOUR_GITHUB_TOKEN"
+            },
+            {
+              "name": "Accept",
+              "value": "application/vnd.github+json"
+            },
+            {
+              "name": "User-Agent",
+              "value": "n8n"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -64,
+        -752
+      ],
+      "id": "e4a9f867-18e6-4fb5-8ce1-cd64583b04f8",
+      "name": "GitHub — Search Repositories (Page 1)"
+    },
+    {
+      "parameters": {
+        "url": "https://api.github.com/search/repositories",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "q",
+              "value": "={{\n`AI agent stars:>500 fork:false archived:false`\n}}"
+            },
+            {
+              "name": "sort",
+              "value": "updated"
+            },
+            {
+              "name": "order",
+              "value": "desc"
+            },
+            {
+              "name": "per_page",
+              "value": "100"
+            },
+            {
+              "name": "page",
+              "value": "2"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "token YOUR_GITHUB_TOKEN"
+            },
+            {
+              "name": "Accept",
+              "value": "application/vnd.github+json"
+            },
+            {
+              "name": "User-Agent",
+              "value": "n8n"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -64,
+        -544
+      ],
+      "id": "658ff81f-5cf9-4c4c-acae-18e8d9dcf46c",
+      "name": "GitHub — Search Repositories (Page 2)"
+    },
+    {
+      "parameters": {
+        "url": "https://api.github.com/search/repositories",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "q",
+              "value": "={{\n`AI agent stars:>500 fork:false archived:false`\n}}"
+            },
+            {
+              "name": "sort",
+              "value": "updated"
+            },
+            {
+              "name": "order",
+              "value": "desc"
+            },
+            {
+              "name": "per_page",
+              "value": "100"
+            },
+            {
+              "name": "page",
+              "value": "3"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "token YOUR_GITHUB_TOKEN"
+            },
+            {
+              "name": "Accept",
+              "value": "application/vnd.github+json"
+            },
+            {
+              "name": "User-Agent",
+              "value": "n8n"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -64,
+        -368
+      ],
+      "id": "d21b30f1-b0ea-4d1b-be67-56e63090bfc2",
+      "name": "GitHub — Search Repositories (Page 3)"
+    },
+    {
+      "parameters": {
+        "url": "https://api.github.com/search/repositories",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "q",
+              "value": "={{\n`AI agent stars:>500 fork:false archived:false`\n}}"
+            },
+            {
+              "name": "sort",
+              "value": "updated"
+            },
+            {
+              "name": "order",
+              "value": "desc"
+            },
+            {
+              "name": "per_page",
+              "value": "100"
+            },
+            {
+              "name": "page",
+              "value": "4"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "token YOUR_GITHUB_TOKEN"
+            },
+            {
+              "name": "Accept",
+              "value": "application/vnd.github+json"
+            },
+            {
+              "name": "User-Agent",
+              "value": "n8n"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -64,
+        -160
+      ],
+      "id": "6eae42a0-8cb0-46ab-be61-6d0ef5fc2327",
+      "name": "GitHub — Search Repositories (Page 4)"
+    },
+    {
+      "parameters": {
+        "numberInputs": 4
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        256,
+        -560
+      ],
+      "id": "9ee18ba3-ddac-4857-8649-ed97a38e316a",
+      "name": "Merge — Combine API Results"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "items",
+        "options": {
+          "destinationFieldName": "items"
+        }
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        512,
+        -560
+      ],
+      "id": "6517d729-1af4-4a35-ab88-a450568dcd8c",
+      "name": "Split — Repositories"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5af8b6f0-40fb-4dc3-95d3-33e9824f8d83",
+              "name": "items.full_name",
+              "value": "={{ $json.items.full_name }}",
+              "type": "string"
+            },
+            {
+              "id": "3a97dc10-1023-460a-942b-496583554cac",
+              "name": "items.html_url",
+              "value": "={{ $json.items.html_url }}",
+              "type": "string"
+            },
+            {
+              "id": "07e65d42-a962-4ff0-a41b-eeb9feec974b",
+              "name": "items.description",
+              "value": "={{ $json.items.description }}",
+              "type": "string"
+            },
+            {
+              "id": "8432a550-a05b-447b-a9f3-977e6465b167",
+              "name": "items.clone_url",
+              "value": "={{ $json.items.clone_url }}",
+              "type": "string"
+            },
+            {
+              "id": "96aae136-de77-47f8-8550-c3561c605708",
+              "name": "items.language",
+              "value": "={{ $json.items.language }}",
+              "type": "string"
+            },
+            {
+              "id": "3573fa2d-dc1a-4f0a-8ddf-fef9e11682e6",
+              "name": "items.updated_at",
+              "value": "={{ $json.items.updated_at }}",
+              "type": "string"
+            },
+            {
+              "id": "cabe6c29-3b10-4e82-98aa-d42b2ca17a72",
+              "name": "items.stargazers_count",
+              "value": "={{ $json.items.stargazers_count }}",
+              "type": "number"
+            },
+            {
+              "id": "212efb02-9ad4-4d2e-9474-daebd10a98e2",
+              "name": "items.visibility",
+              "value": "={{ $json.items.visibility }}",
+              "type": "string"
+            },
+            {
+              "id": "373ccf02-3c18-4810-82ac-cdd328e0d525",
+              "name": "items.topics",
+              "value": "={{ $json.items.topics }}",
+              "type": "array"
+            },
+            {
+              "id": "bc2801ba-c452-46e0-ba11-ffa543cc5588",
+              "name": "items.created_at",
+              "value": "={{ $json.items.created_at }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {
+          "dotNotation": false
+        }
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        752,
+        -560
+      ],
+      "id": "c92fd978-9e78-4a5c-a7f1-d6a41bef5a85",
+      "name": "Data — Normalize Repository Fields"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "6daaad2e-0189-4a6e-a498-f1fe5a0d1236",
+              "leftValue": "={{ $json[\"items.stargazers_count\"] }}",
+              "rightValue": 1000,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        976,
+        -560
+      ],
+      "id": "8b0a9a2a-0ae5-4ebd-9f4c-3333d7760a7d",
+      "name": "ilter — Stars > 1000"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.sort((a, b) => {\n  return b.json.stargazers_count - a.json.stargazers_count;\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        -560
+      ],
+      "id": "390d262f-198b-40b7-8075-e84d9c3fbfab",
+      "name": "Sort — By Stars"
+    },
+    {
+      "parameters": {
+        "maxItems": 10
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        1392,
+        -560
+      ],
+      "id": "a7353c53-9cf3-439a-8442-3d20fe2faf0e",
+      "name": "Limit — Top 10"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.alltokens.ru/api/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer YOUR_AI_API_KEY"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"gpt-4.1-mini\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"Analyze the GitHub repository based on the provided data.\\n\\nRepository name:\\n{{ $json['items.full_name'] }}\\n\\nDescription:\\n{{ $json['items.description'] }}\\n\\nPrimary language:\\n{{ $json['items.language'] }}\\n\\nStars:\\n{{ $json['items.stargazers_count'] }}\\n\\nLast updated:\\n{{ $json['items.updated_at'] }}\\n\\nTopics:\\n{{ $json['items.topics'] }}\\n\\nRepository URL:\\n{{ $json['items.html_url'] }}\\n\\nYour task is to briefly determine the purpose of the project, its likely operating principle, and its practical value based only on the available data.\\n\\nIMPORTANT RULES:\\n- Use only information that can be supported by the provided data.\\n- Do not invent technologies, architecture, features, requirements, or implementation details that are not present in the data.\\n- Do not present assumptions as confirmed facts.\\n- If an accurate conclusion cannot be made, write: \"Not determined from the available data.\"\\n- Do not summarize or rewrite the README.\\n- Do not evaluate code quality because the source code has not been provided.\\n- Do not use marketing language.\\n- Do not call the project innovative unless there is sufficient evidence in the provided data.\\n- Keep the answer concise, structured, neutral, and informative.\\n\\nAnswer STRICTLY in the following format.\\n\\n====================\\n\\nName:\\nProvide the project name.\\n\\nCategory:\\nChoose the most appropriate project category, for example: IoT, Embedded, AI, Web, Mobile, Automation, Developer Tools, Library, Framework, or another suitable category.\\n\\nWhat it does:\\nMaximum 2–3 sentences. Briefly explain the main purpose of the project.\\n\\nHow it works:\\nMaximum 3 sentences. Describe the operating principle only based on the available data. If it cannot be determined, write: \"Not determined from the available data.\"\\n\\nRequirements:\\nList only technologies, platforms, devices, programming languages, or other requirements that are explicitly supported by the provided data. If there is not enough information, write: \"Not determined from the available data.\"\\n\\nWhy it is interesting:\\nDescribe the practical value and notable characteristics of the project only based on the available data.\\n•\\n•\\n•\\n\\nConfidence level:\\nHigh / Medium / Low\\n\\n====================\\n\\nAdditional rules:\\n- Do not add any text before or after the specified format.\\n- Do not repeat the input data unnecessarily.\\n- Do not invent missing technical details.\\n- If the information is contradictory or insufficient, state this explicitly.\\n- Use neutral, technical language.\"\n    }\n  ],\n  \"temperature\": 0.2,\n  \"max_tokens\": 700\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        1616,
+        -560
+      ],
+      "id": "ad35cc1b-1ec9-4b2d-ba49-049b1117910d",
+      "name": "AI — Analyze Repository"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "YOUR_GOOGLE_DOC_ID",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "={\n  \"🚀 Проект:\" {{ $('ilter — Stars > 1000').item.json['items.full_name'] }}\n  \"🔗 Ссылка:\" {{ $('ilter — Stars > 1000').item.json['items.html_url'] }}\n  \"🧠 Описание:\" {{ $('ilter — Stars > 1000').item.json['items.description'] }}\n  \"⭐ Stars:\" {{ $('ilter — Stars > 1000').item.json['items.stargazers_count'] }}\n  \"🧪 Язык:\" {{ $('ilter — Stars > 1000').item.json['items.language'] }}\n  \"📊 AI анализ:\" {{ $json.choices[0].message.content }}\\nn\n  \"====================\n\"\n}\n"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        1824,
+        -560
+      ],
+      "id": "39a1f84c-0e2d-47d7-999b-8ac6b5247ab2",
+      "name": "Output — Google Docs",
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Trigger — Manual": {
+      "main": [
+        [
+          {
+            "node": "GitHub — Search Repositories (Page 2)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "GitHub — Search Repositories (Page 3)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "GitHub — Search Repositories (Page 4)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "GitHub — Search Repositories (Page 1)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHub — Search Repositories (Page 1)": {
+      "main": [
+        [
+          {
+            "node": "Merge — Combine API Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHub — Search Repositories (Page 2)": {
+      "main": [
+        [
+          {
+            "node": "Merge — Combine API Results",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "GitHub — Search Repositories (Page 3)": {
+      "main": [
+        [
+          {
+            "node": "Merge — Combine API Results",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "GitHub — Search Repositories (Page 4)": {
+      "main": [
+        [
+          {
+            "node": "Merge — Combine API Results",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "Merge — Combine API Results": {
+      "main": [
+        [
+          {
+            "node": "Split — Repositories",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split — Repositories": {
+      "main": [
+        [
+          {
+            "node": "Data — Normalize Repository Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data — Normalize Repository Fields": {
+      "main": [
+        [
+          {
+            "node": "ilter — Stars > 1000",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ilter — Stars > 1000": {
+      "main": [
+        [
+          {
+            "node": "Sort — By Stars",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sort — By Stars": {
+      "main": [
+        [
+          {
+            "node": "Limit — Top 10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit — Top 10": {
+      "main": [
+        [
+          {
+            "node": "AI — Analyze Repository",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI — Analyze Repository": {
+      "main": [
+        [
+          {
+            "node": "Output — Google Docs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true,
+  },
+  "nodeGroups": [],
+  "tags": []
+}
