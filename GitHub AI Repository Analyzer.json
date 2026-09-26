@@ -454,7 +454,7 @@
         -560
       ],
       "id": "39a1f84c-0e2d-47d7-999b-8ac6b5247ab2",
-      "name": "Output — Google Docs",
+      "name": "Output — Google Docs"
     }
   ],
   "pinData": {},
@@ -614,7 +614,7 @@
     "availableInMCP": false
   },
   "meta": {
-    "templateCredsSetupCompleted": true,
+    "templateCredsSetupCompleted": true
   },
   "nodeGroups": [],
   "tags": []
